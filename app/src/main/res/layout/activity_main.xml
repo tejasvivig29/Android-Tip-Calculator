@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/billAmountDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="32dp"
+        android:text="Base"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/billAmountDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@android:color/black"
+        android:textSize="11sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@id/billAmountDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/billAmountDisplay"
+        android:text="Bill in $" />
+
+    <TextView
+        android:id="@+id/tipAmountDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/billAmountDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/billAmountDisplay"
+        tools:text="15%" />
+
+    <TextView
+        android:id="@+id/tipAmountDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@android:color/black"
+        android:textSize="11sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@id/tipAmountDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/tipAmountDisplay"
+        android:text="(Tip %)" />
+
+    <TextView
+        android:id="@+id/billSplitPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/tipAmountDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/tipAmountDisplay"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/billSplitPeopleDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@android:color/black"
+        android:textSize="11sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@id/billSplitPeople"
+        app:layout_constraintTop_toBottomOf="@+id/billSplitPeople"
+        android:text="Bill Split (People)" />
+
+    <TextView
+        android:id="@+id/tipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:text="Tip"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/billAmountDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/tipAmountDisplay" />
+
+    <TextView
+        android:id="@+id/totalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Total"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/billAmountDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/tipAmount" />
+
+    <!--  Views on right side  -->
+
+    <EditText
+        android:id="@+id/etBase"
+        android:layout_width="226dp"
+        android:layout_height="66dp"
+        android:layout_marginLeft="32dp"
+        android:ems="8"
+        android:hint="$00.00"
+        android:inputType="numberDecimal"
+        android:textSize="24sp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+
+        app:layout_constraintBaseline_toBaselineOf="@id/billAmountDisplay"
+        app:layout_constraintStart_toEndOf="@+id/billAmountDisplay" />
+
+    <SeekBar
+        android:id="@+id/seekBarTip"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:max="25"
+        app:layout_constraintBottom_toBottomOf="@id/tipAmountDisplay"
+        app:layout_constraintStart_toStartOf="@id/etBase"
+        app:layout_constraintTop_toTopOf="@id/tipAmountDisplay" />
+
+    <SeekBar
+        android:id="@+id/seekBarPeople"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:max="50"
+        android:progress="1"
+        android:min="1"
+        app:layout_constraintBottom_toBottomOf="@id/billSplitPeople"
+        app:layout_constraintStart_toStartOf="@+id/seekBarTip"
+        app:layout_constraintTop_toTopOf="@id/tipAmountDisplay"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tvTipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/tipAmount"
+        app:layout_constraintStart_toStartOf="@id/etBase"
+        tools:text="3.78" />
+
+    <TextView
+        android:id="@+id/tvTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/totalAmount"
+        app:layout_constraintStart_toStartOf="@id/etBase"
+        tools:text="15.32" />
+
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_goneMarginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="fill">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:text="7"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="numberClick"
+                android:id="@+id/buttonSeven"/>
+
+            <Button
+                android:text="8"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="numberClick"
+                android:id="@+id/buttonEight"/>
+
+            <Button
+                android:text="9"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="numberClick"
+                android:id="@+id/buttonNine"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:text="4"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="numberClick"
+                android:id="@+id/buttonFour"/>
+
+            <Button
+                android:text="5"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="numberClick"
+                android:id="@+id/buttonFive"/>
+
+            <Button
+                android:text="6"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="numberClick"
+                android:id="@+id/buttonSix"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:text="1"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="numberClick"
+                android:id="@+id/buttonOne"/>
+
+            <Button
+                android:text="2"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="numberClick"
+                android:id="@+id/buttonTwo"/>
+
+            <Button
+                android:text="3"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="numberClick"
+                android:id="@+id/buttonThree"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:text="."
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="numberClick"
+                android:id="@+id/buttonDecimal"/>
+
+            <Button
+                android:text="0"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="numberClick"
+                android:id="@+id/buttonZero"/>
+
+            <Button
+                android:text="Calculate"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="calculateTip"
+                android:id="@+id/buttonCalculateTip"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+
+
+            <Button
+                android:text="DEL"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="backSpace"
+                android:id="@+id/buttonDel"/>
+
+            <Button
+                android:text="CLR"
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="clearClick"
+                android:id="@+id/buttonClr"/>
+
+        </TableRow>
+    </TableLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
